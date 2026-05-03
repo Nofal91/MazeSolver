@@ -2,6 +2,9 @@
 
 from pyamaze import maze,textLabel
 
+
+
+
 def dfs(m):
     l1 = textLabel(m, 'Main path', 'Yellow')
     l2 = textLabel(m, 'DFS search', 'Red')
@@ -31,12 +34,13 @@ def dfs(m):
                 explored.append(child)
                 frontier.append(child)
                 dfsPath[child]=current
-
+    l4=textLabel(m, 'Dfs steps', len(dfsExplored))
     fwdPath={}
     goal=(1,1)
     while goal != start:
         fwdPath[dfsPath[goal]]=goal
         goal=dfsPath[goal]
+    l5=textLabel(m, 'Dfs final path', len(fwdPath))
     return fwdPath,dfsExplored
 
 
