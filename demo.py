@@ -19,7 +19,7 @@ mainPath=agent(m,footprints=True,color=COLOR.yellow)
 
 
 m.tracePath({mainPath:m.path},delay=100)
-m.tracePath({b:dfsExplored},delay=100) #if the whole path needed
+# m.tracePath({b:dfsExplored},delay=100) #if the whole path needed
 m.tracePath({a:fwdPath},delay=100)
 
 m.run()
