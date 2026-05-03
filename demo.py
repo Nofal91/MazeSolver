@@ -5,15 +5,15 @@ from Dfs import dfs
 
 m=maze(5,5)
 #m.CreateMaze(theme=COLOR.light)
-m.CreateMaze(loopPercent=20)
+m.CreateMaze(loopPercent=50)
 # print(m.maze_map)
 
 fwdPath,dfsExplored=dfs(m)
-
-
-
 textLabel(m, 'optimal steps', len(m.path))
-a=agent(m,filled=True,footprints=True)
+
+
+
+a=agent(m,footprints=True)
 b=agent(m,footprints=True,color=COLOR.red,shape='arrow')
 mainPath=agent(m,footprints=True,color=COLOR.yellow)
 

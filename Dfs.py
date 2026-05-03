@@ -34,7 +34,7 @@ def dfs(m):
                 explored.append(child)
                 frontier.append(child)
                 dfsPath[child]=current
-    l4=textLabel(m, 'Dfs steps', len(dfsExplored))
+    l4=textLabel(m, 'Dfs steps', len(dfsExplored)-1)
     fwdPath={}
     goal=(1,1)
     while goal != start:
