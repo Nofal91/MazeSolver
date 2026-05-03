@@ -6,9 +6,7 @@ from pyamaze import maze,textLabel
 
 
 def dfs(m):
-    l1 = textLabel(m, 'Main path', 'Yellow')
-    l2 = textLabel(m, 'DFS search', 'Red')
-    l3 = textLabel(m, 'DFS final path', 'Blue')
+
     start=(m.rows,m.cols)
     explored=[start]
     frontier=[start]
