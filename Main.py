@@ -24,7 +24,7 @@ mainPath=agent(m,footprints=True,color=COLOR.yellow)
 #################
  # DFS
 
-m.tracePath({mainPath:m.path},delay=150)
+#m.tracePath({mainPath:m.path},delay=150)
 # m.tracePath({b:dfsExplored},delay=200) #if the whole path needed
 # m.tracePath({a:fwdPath},delay=150)
 
@@ -32,7 +32,7 @@ m.tracePath({mainPath:m.path},delay=150)
 # A Star
 
 m.tracePath({mainPath:m.path},delay=150)
-m.tracePath({b:A_exploredPath},delay=200) #if the whole path needed
+m.tracePath({b:A_exploredPath},delay=100) #if the whole path needed
 m.tracePath({a:A_fwdPath},delay=150)
 
 m.run()
