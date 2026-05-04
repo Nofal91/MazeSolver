@@ -1,9 +1,15 @@
 from pyamaze import maze,textLabel
 from queue import PriorityQueue
+
+
+
 def h(cell1,cell2):
     x1,y1=cell1
     x2,y2=cell2
     return abs(x1-x2)+abs(y1-y2)
+
+
+
 def aStar(m,g):
     start=(m.rows,m.cols)
     g_score = {cell: float('inf') for cell in m.grid}
