@@ -6,51 +6,60 @@ from getData import getData
 
 
 
-k,l,algorithm,randMaze = getData()
+k, l, algorithm, randMaze, searchPath, goalX, goalY = getData()
 
 
 
 m=maze(k,l)
 #m.CreateMaze(theme=COLOR.light)
-x=1
-y=2
-goal=(x,y)
+
+
+goal=(goalX,goalY)
 
 if randMaze:
-    m.CreateMaze(x,y,loopPercent=50,loadMaze='mainMaze.csv')
+    m.CreateMaze(goal[0],goal[1], loopPercent=50)
 else:
-    m.CreateMaze(x,y,loopPercent=50)
+    m.CreateMaze(goal[0],goal[1], loadMaze='mainMaze.csv')
+    
 
-#,loadMaze='mainMaze.csv'
+
 # print(m.maze_map)
+
 textLabel(m, 'Optimal path', 'Yellow')
 textLabel(m, 'Optimal steps', len(m.path))
 l2 = textLabel(m, 'DFS search', 'Red')
 l3 = textLabel(m, 'DFS final path', 'Blue')
 
 
-A_fwdPath,A_exploredPath=aStar(m,goal)
-Dfs_fwdPath,Dfs_exploredPath=dfs(m)
+A_fwdPath, A_exploredPath = aStar(m, goal)
+Dfs_fwdPath, Dfs_exploredPath = dfs(m, goal)
 
 
 
 
-a=agent(m,footprints=True)
-b=agent(m,footprints=True,color=COLOR.red,shape='arrow')
-mainPath=agent(m,footprints=True,color=COLOR.yellow)
+a = agent(m, footprints=True)
+b = agent(m, footprints=True, color=COLOR.red, shape='arrow')
+mainPath = agent(m, footprints=True, color=COLOR.yellow)
 
-#################
- # DFS
 
-#m.tracePath({mainPath:m.path},delay=150)
-# m.tracePath({b:dfsExplored},delay=200) #if the whole path needed
-# m.tracePath({a:fwdPath},delay=150)
 
-################
-# A Star
+if algorithm == "DFS": ##  DFS
 
-m.tracePath({mainPath:m.path},delay=150)
-# m.tracePath({b:A_exploredPath},delay=200) #if the whole path needed
-m.tracePath({a:A_fwdPath},delay=150)
+    m.tracePath({mainPath:m.path}, delay=150)
+    if searchPath : m.tracePath({b:Dfs_exploredPath}, delay=200) #if the whole path needed
+    m.tracePath({a:Dfs_fwdPath}, delay=150)
+
+elif algorithm == "BFS": ## BFS
+
+    print("Under Construction")
+
+
+elif algorithm == "A*": ## A*
+
+    m.tracePath({mainPath:m.path},delay=150)
+    if searchPath : m.tracePath({b:A_exploredPath},delay=200) #if the whole path needed
+    m.tracePath({a:A_fwdPath},delay=150)
+
+
 
 m.run()

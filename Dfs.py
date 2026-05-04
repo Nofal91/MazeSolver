@@ -5,7 +5,7 @@ from pyamaze import maze,textLabel
 
 
 
-def dfs(m):
+def dfs(m , goal):
 
     start=(m.rows,m.cols)
     explored=[start]
@@ -15,7 +15,7 @@ def dfs(m):
     while len(frontier)>0:
         current=frontier.pop()
         dfsExplored.append(current)
-        if current==(1,1):
+        if current==goal:
             break
         for d in 'ESNW':
             if m.maze_map[current][d]==True:
@@ -34,7 +34,6 @@ def dfs(m):
                 dfsPath[child]=current
     l4=textLabel(m, 'Dfs steps', len(dfsExplored)-1)
     fwdPath={}
-    goal=(1,1)
     while goal != start:
         fwdPath[dfsPath[goal]]=goal
         goal=dfsPath[goal]

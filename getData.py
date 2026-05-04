@@ -21,14 +21,46 @@ def getData():
     else:
         
         RandMaze = False
-        x=10
-        y=10
+        x=15
+        y=15
     
 
 
 
-    z = int(input("Choose your search algorithm 1.DFS 2.BFS 3.A* 4.Dijkstra : "))
+    z = int(input("Choose your search algorithm 1.DFS 2.BFS 3.A* : "))
 
+    
+    
+
+    goalCheck = False
+
+    while goalCheck == False :
+    
+        goal_input = input("Enter the goal target x,y :")
+
+        goalParts = goal_input.split(',')
+
+
+        goalX = int(goalParts[0])
+        goalY = int(goalParts[1])
+
+        if goalX > x or goalY > y or goalX < 1 or goalY < 1:
+            print("Goal is not on the map try again !")
+        else:
+            goalCheck = True
+
+    
+    
+
+
+
+
+    path_input = int(input("Do you want to see the search Paths 1.Yes 2.No : "))
+
+    if path_input == 1:
+        path = True
+    else:
+        path = False
 
 
 
@@ -38,12 +70,10 @@ def getData():
         searchAlgorithm = 'BFS'
     elif z == 3:
         searchAlgorithm = 'A*'
-    elif z == 4:
-        searchAlgorithm = 'Dijkstra'
     else:
         searchAlgorithm = None
 
 
 
 
-    return x,y,searchAlgorithm,RandMaze
+    return x,y,searchAlgorithm,RandMaze, path, goalX, goalY
