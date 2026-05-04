@@ -1,0 +1,23 @@
+from pyamaze import maze, textlabel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,13 +2,25 @@ from pyamaze import maze, COLOR, agent, textLabel
 from timeit import timeit
 from Dfs import dfs
 from aStar import aStar
+from getData import getData
 
-m=maze(10,10)
+
+
+k,l,algorithm,randMaze = getData()
+
+
+
+m=maze(k,l)
 #m.CreateMaze(theme=COLOR.light)
 x=1
 y=2
 goal=(x,y)
-m.CreateMaze(x,y,loopPercent=50)
+
+if randMaze:
+    m.CreateMaze(x,y,loopPercent=50,loadMaze='mainMaze.csv')
+else:
+    m.CreateMaze(x,y,loopPercent=50)
+
 #,loadMaze='mainMaze.csv'
 # print(m.maze_map)
 textLabel(m, 'Optimal path', 'Yellow')
