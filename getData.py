@@ -21,8 +21,8 @@ def getData():
     else:
         
         RandMaze = False
-        x=15
-        y=15
+        x=20
+        y=20
     
 
 

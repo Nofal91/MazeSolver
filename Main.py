@@ -18,9 +18,9 @@ m=maze(k,l)
 goal=(goalX,goalY)
 
 if randMaze:
-    m.CreateMaze(goal[0],goal[1], loopPercent=55)
+    m.CreateMaze(goal[0],goal[1], loopPercent=60)
 else:
-    m.CreateMaze(goal[0],goal[1], loadMaze='mainMaze.csv')
+    m.CreateMaze(goal[0],goal[1], loadMaze='20x20.csv')
     
 
 
@@ -51,7 +51,7 @@ m.tracePath({mainPath:m.path}, delay=150)
 
 if algorithm == "DFS": ##  DFS
 
-    if searchPath : m.tracePath({b:DFS_exploredPath}, delay=120) #if the whole path needed
+    if searchPath : m.tracePath({b:DFS_exploredPath}, delay=40) #if the whole path needed
     m.tracePath({a:DFS_fwdPath}, delay=150)
 
 elif algorithm == "BFS": ## BFS
@@ -61,7 +61,7 @@ elif algorithm == "BFS": ## BFS
 
 elif algorithm == "A*": ## A*
 
-    if searchPath : m.tracePath({b:A_exploredPath},delay=120) #if the whole path needed
+    if searchPath : m.tracePath({b:A_exploredPath},delay=50) #if the whole path needed
     m.tracePath({a:A_fwdPath},delay=150)
 
 
