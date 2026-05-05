@@ -41,7 +41,7 @@ BFS_fwdpath, BFS_exploredPath = BFS(m, goal)
 
 
 
-a = agent(m, footprints=True)
+a = agent(m, footprints=True, filled=True)
 b = agent(m, footprints=True, color=COLOR.red, shape='arrow')
 mainPath = agent(m, footprints=True, color=COLOR.yellow)
 
