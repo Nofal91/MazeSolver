@@ -50,9 +50,6 @@ def getData():
             goalCheck = True
 
     
-    
-
-
 
 
     path_input = int(input("Do you want to see the search Paths 1.Yes 2.No : "))

@@ -1,4 +1,4 @@
-from pyamaze import maze,textLabel
+from pyamaze import textLabel
 from queue import PriorityQueue
 
 

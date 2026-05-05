@@ -1,6 +1,7 @@
 from pyamaze import maze, COLOR, agent, textLabel
 from timeit import timeit
 from Dfs import dfs
+from Bfs import BFS
 from aStar import aStar
 from getData import getData
 
@@ -27,12 +28,15 @@ else:
 
 textLabel(m, 'Optimal path', 'Yellow')
 textLabel(m, 'Optimal steps', len(m.path))
-l2 = textLabel(m, 'DFS search', 'Red')
-l3 = textLabel(m, 'DFS final path', 'Blue')
+l2 = textLabel(m, 'search', 'Red')
+l3 = textLabel(m, 'final path', 'Blue')
+
 
 
 A_fwdPath, A_exploredPath = aStar(m, goal)
-Dfs_fwdPath, Dfs_exploredPath = dfs(m, goal)
+DFS_fwdPath, DFS_exploredPath = dfs(m, goal)
+BFS_fwdpath, BFS_exploredPath = BFS(m, goal)
+
 
 
 
@@ -42,21 +46,20 @@ b = agent(m, footprints=True, color=COLOR.red, shape='arrow')
 mainPath = agent(m, footprints=True, color=COLOR.yellow)
 
 
+m.tracePath({mainPath:m.path}, delay=150)
 
 if algorithm == "DFS": ##  DFS
 
-    m.tracePath({mainPath:m.path}, delay=150)
-    if searchPath : m.tracePath({b:Dfs_exploredPath}, delay=200) #if the whole path needed
-    m.tracePath({a:Dfs_fwdPath}, delay=150)
+    if searchPath : m.tracePath({b:DFS_exploredPath}, delay=200) #if the whole path needed
+    m.tracePath({a:DFS_fwdPath}, delay=150)
 
 elif algorithm == "BFS": ## BFS
 
-    print("Under Construction")
-
+    if searchPath : m.tracePath({b:BFS_exploredPath}, delay=200) #if the whole path needed
+    m.tracePath({a:BFS_fwdpath},delay=150)
 
 elif algorithm == "A*": ## A*
 
-    m.tracePath({mainPath:m.path},delay=150)
     if searchPath : m.tracePath({b:A_exploredPath},delay=200) #if the whole path needed
     m.tracePath({a:A_fwdPath},delay=150)
 
